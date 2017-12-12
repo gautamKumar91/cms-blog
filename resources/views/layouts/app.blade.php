@@ -21,14 +21,14 @@
             <a class="navbar-item" href="{{route('home')}}">
               <img src="{{asset('images/blog-logo1.png')}}" alt="CMS Blog Logo">
             </a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <div class="navbar-burger burger" data-target="navbarPrimary">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
 
-          <div id="navbar" class="navbar-menu">
+          <div id="navbarPrimary" class="navbar-menu">
             <div class="navbar-start">
               <a class="navbar-item" href="#">
                 Learn
@@ -44,10 +44,10 @@
             <div class="navbar-end">
 
                 @if(Auth::guest())
-                  <a class="navbar-item" href="#">
+                  <a class="navbar-item" href="{{route('login')}}">
                     Login
                   </a>
-                  <a class="navbar-item" href="#">
+                  <a class="navbar-item" href="{{route('register')}}">
                     Join the Community
                   </a>
                 @else

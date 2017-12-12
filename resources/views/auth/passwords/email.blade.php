@@ -1,47 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@if(session('status'))
+  <div class="notification is-success">
+    {{session('status')}}
+  </div>
+@endif
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third m-t-50">
+    <div class="card">
+      <div class="card-content">
+        <h1 class="title">Forgot Password</h1>
+        <form action="{{route('password.email')}}" method="post" role="form">
+          {{csrf_field()}}
+          <div class="field">
+            <label for="email" class="label">Email Address</label>
+            <p class="control">
+              <input class="input {{$errors->has('email') ? 'is-danger' : ''}}" type="email" name="email" id="email"
+              placeholder="example@example.com" value="{{old('email')}} " required>
+            </p>
+            @if($errors->has('email'))
+              <p class="help is-danger">{{$errors->first('email')}}</p>
+            @endif
+          </div>
+          <button class="button is-primary is-fullwidth m-t-20">Get Reset Link</button>
+        </form>
+      </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
+    <h5 class="has-text-centered m-t-20 "><a href="{{route('login')}}" class="is-muted"><i class="fa fa-caret-left m-r-5"></i>Back to Login</a></h5>
+  </div>
 </div>
 @endsection
