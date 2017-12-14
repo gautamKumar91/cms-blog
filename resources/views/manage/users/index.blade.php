@@ -36,7 +36,7 @@
                 <a class="button is-outlined m-r-5" href="{{route('users.show', $user->id)}}">
                   View
                 </a>
-                <a class="button is-light" href="{{route('users.edit', $user->id)}}">
+                <a class="button is-outlined" href="{{route('users.edit', $user->id)}}">
                   Edit</a>
                 </td>
             </tr>

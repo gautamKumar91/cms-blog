@@ -126,6 +126,9 @@ class UserController extends Controller
       }
 
       $user->save();
+      if ($request->roles) {
+        $user->syncRoles(explode(',', $request->roles));
+      }
       //$user->syncRoles(explode(',', $request->roles));
       return redirect()->route('users.show', $id);
     }

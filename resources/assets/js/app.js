@@ -12,9 +12,5 @@ window.Vue = require('vue');
 import Buefy from 'buefy'
 Vue.use(Buefy);
 
-var App = new Vue({
-    el: '#app',
-    data: {
-      
-    }
-});
+
+import Vue from 'vue'
