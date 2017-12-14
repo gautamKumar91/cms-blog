@@ -15,6 +15,6 @@ Vue.use(Buefy);
 var App = new Vue({
     el: '#app',
     data: {
-
+      
     }
 });
