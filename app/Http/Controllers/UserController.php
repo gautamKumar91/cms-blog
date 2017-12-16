@@ -50,7 +50,7 @@ class UserController extends Controller
          $password = trim($request->password);
        }
        else {
-         # set the manual password
+         # set the autogenerate password
          $length = 10;
          $keyspace = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
          $str = '';
